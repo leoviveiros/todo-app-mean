@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "An example of a TODO app on a MEAN stack.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "node --test"
   },
@@ -11,5 +12,8 @@
   "license": "ISC",
   "engines": {
     "node": "18"
+  },
+  "dependencies": {
+    "joi": "^17.7.0"
   }
 }
