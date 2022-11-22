@@ -1,6 +1,7 @@
+import BaseEntity from '../../../shared/domain/base.entity.js';
 import TodoValidator from '../validator/todo.validator.js';
 
-export default class Todo {
+export default class Todo extends BaseEntity {
     #id;
     #userId;
     #name;
@@ -10,6 +11,8 @@ export default class Todo {
     #updatedAt;
 
     constructor(id, userId, name, description, checked, createdAt, updatedAt) {
+        super();
+        
         this.#id = id;
         this.#userId = userId;
         this.#name = name;
@@ -18,12 +21,11 @@ export default class Todo {
         this.#createdAt = createdAt || new Date();
         this.#updatedAt = updatedAt || new Date();
 
-        this.validate();
+        this.#validate();
     }
 
-    validate() {        
-        // TODO extrair propriedades de this
-        TodoValidator.validate(this);
+    #validate() {        
+        TodoValidator.validate(this.getProperties());
     }
 
     get id() {

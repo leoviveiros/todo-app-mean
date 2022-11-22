@@ -13,6 +13,7 @@ export default class TodoValidator {
     });
 
     static validate(todo) {
+        console.dir(todo)
         this.schema.assert(todo);
     }
 
