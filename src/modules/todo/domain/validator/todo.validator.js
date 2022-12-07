@@ -1,6 +1,6 @@
-import Joi from 'joi';
+const Joi = require('joi');
 
-export default class TodoValidator {
+class TodoValidator {
 
     static schema = Joi.object({
         id: Joi.string().required(),
@@ -21,3 +21,5 @@ export default class TodoValidator {
     }
 
 }
+
+module.exports = TodoValidator;

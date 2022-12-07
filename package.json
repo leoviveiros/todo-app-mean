@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "An example of a TODO app on a MEAN stack.",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "test": "node --test"
+    "test": "jest"
   },
   "keywords": [],
   "author": "Leonardo Pinto",
@@ -15,5 +15,8 @@
   },
   "dependencies": {
     "joi": "^17.7.0"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
   }
 }

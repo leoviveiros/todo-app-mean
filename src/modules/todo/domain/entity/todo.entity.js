@@ -1,7 +1,7 @@
-import BaseEntity from '../../../shared/domain/base.entity.js';
-import TodoValidator from '../validator/todo.validator.js';
+const BaseEntity = require('../../../shared/domain/base.entity.js');
+const TodoValidator = require('../validator/todo.validator.js');
 
-export default class Todo extends BaseEntity {
+class Todo extends BaseEntity {
     #id;
     #userId;
     #name;
@@ -57,3 +57,5 @@ export default class Todo extends BaseEntity {
     }
 
 }
+
+module.exports = Todo;

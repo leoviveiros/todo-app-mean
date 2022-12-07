@@ -1,5 +1,5 @@
 
-export default class BaseEntity {
+class BaseEntity {
 
     getProperties() {
         return Object.entries(Object.getOwnPropertyDescriptors(Reflect.getPrototypeOf(this)))
@@ -12,3 +12,5 @@ export default class BaseEntity {
     }
 
 }
+
+module.exports = BaseEntity;
