@@ -6,15 +6,13 @@ describe('Todo Entity Tests', () => {
         const todo = new Todo('1', 'user', 'Name');
 
         expect(todo).toBeDefined();
-        expect(todo.id).toBe('1')
-
-        // assert.equal(todo.id, '1');
-        // assert.equal(todo.userId, 'user');
-        // assert.equal(todo.name, 'Name');
-        // assert.equal(todo.description, undefined);
-        // assert.equal(todo.checked, false);
-        // assert.ok(todo.createdAt);
-        // assert.ok(todo.updatedAt);
+        expect(todo.id).toBe('1');
+        expect(todo.userId).toBe('user');
+        expect(todo.name).toBe('Name');
+        expect(todo.description).toBeUndefined();
+        expect(todo.checked).toBe(false);
+        expect(todo.createdAt).toBeDefined();
+        expect(todo.updatedAt).toBeDefined();
     });
 
     it('creates a todo instance with all props', () => {
@@ -22,16 +20,13 @@ describe('Todo Entity Tests', () => {
         const todo = new Todo('1', 'user', 'Name', 'Description', true, date, date);
 
         expect(todo).toBeDefined();
-        expect(todo.id).toBe('1')
-
-        /* assert.ok(todo);
-        assert.equal(todo.id, '1');
-        assert.equal(todo.userId, 'user');
-        assert.equal(todo.name, 'Name');
-        assert.equal(todo.description, 'Description');
-        assert.equal(todo.checked, true);
-        assert.equal(todo.createdAt, date);
-        assert.equal(todo.updatedAt, date); */
+        expect(todo.id).toBe('1');
+        expect(todo.userId).toBe('user');
+        expect(todo.name).toBe('Name');
+        expect(todo.description).toBe('Description');
+        expect(todo.checked).toBe(true);
+        expect(todo.createdAt).toBe(date);
+        expect(todo.updatedAt).toBe(date);
     });
 
 });
