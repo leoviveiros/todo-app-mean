@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-class TodoValidator {
+class TaskValidator {
 
     static schema = Joi.object({
         id: Joi.string().required(),
@@ -22,4 +22,4 @@ class TodoValidator {
 
 }
 
-module.exports = TodoValidator;
+module.exports = TaskValidator;

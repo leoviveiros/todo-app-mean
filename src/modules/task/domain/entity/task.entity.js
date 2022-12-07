@@ -1,7 +1,7 @@
 const BaseEntity = require('../../../shared/domain/base.entity.js');
-const TodoValidator = require('../validator/todo.validator.js');
+const TaskValidator = require('../validator/task.validator.js');
 
-class Todo extends BaseEntity {
+class Task extends BaseEntity {
     #id;
     #userId;
     #name;
@@ -25,7 +25,7 @@ class Todo extends BaseEntity {
     }
 
     #validate() {        
-        TodoValidator.validate(this.getProperties());
+        TaskValidator.validate(this.getProperties());
     }
 
     get id() {
@@ -58,4 +58,4 @@ class Todo extends BaseEntity {
 
 }
 
-module.exports = Todo;
+module.exports = Task;
