@@ -29,5 +29,9 @@ describe('Task Entity Tests', () => {
         expect(task.updatedAt).toBe(date);
     });
 
+    it('creates an invalid task', () => {
+        expect(() => new Task('1')).toThrowError();
+    });
+
 });
 
