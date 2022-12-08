@@ -17,12 +17,12 @@ describe('TaskValidator Tests', () => {
         };
     })
 
-    it('creates a valid task instance with minimum props', () => {
+    it('should create a valid task instance with minimum props', () => {
         expect(() => TaskValidator.validate(task)).not.toThrow();
         expect(() => TaskValidator.validate(omit(task, 'description'))).not.toThrow();
     });
 
-    it('creates an invalid task', () => {
+    it('should create an invalid task', () => {
         expect(() => TaskValidator.validate({})).toThrowError('"id" is required');
         expect(() => TaskValidator.validate(omit(task, 'userId'))).toThrowError('"userId" is required');
         expect(() => TaskValidator.validate(omit(task, 'name'))).toThrowError('"name" is required');

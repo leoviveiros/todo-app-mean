@@ -2,12 +2,12 @@ const Task = require('./task.entity.js');
 
 describe('Task Entity Tests', () => {
 
-    it('creates a task instance with minimum props', () => {
-        const task = new Task('1', 'user', 'Name');
+    it('should create a task instance with minimum props', () => {
+        const task = new Task(undefined, 'userID', 'Name');
 
         expect(task).toBeDefined();
-        expect(task.id).toBe('1');
-        expect(task.userId).toBe('user');
+        expect(task.id).toBeDefined();
+        expect(task.userId).toBe('userID');
         expect(task.name).toBe('Name');
         expect(task.description).toBeUndefined();
         expect(task.checked).toBe(false);
@@ -15,13 +15,13 @@ describe('Task Entity Tests', () => {
         expect(task.updatedAt).toBeDefined();
     });
 
-    it('creates a task instance with all props', () => {
+    it('should create a task instance with all props', () => {
         const date = new Date(2022, 0, 1);
-        const task = new Task('1', 'user', 'Name', 'Task description', true, date, date);
+        const task = new Task('1', 'userID', 'Name', 'Task description', true, date, date);
 
         expect(task).toBeDefined();
         expect(task.id).toBe('1');
-        expect(task.userId).toBe('user');
+        expect(task.userId).toBe('userID');
         expect(task.name).toBe('Name');
         expect(task.description).toBe('Task description');
         expect(task.checked).toBe(true);
@@ -29,8 +29,8 @@ describe('Task Entity Tests', () => {
         expect(task.updatedAt).toBe(date);
     });
 
-    it('creates an invalid task', () => {
-        expect(() => new Task('1')).toThrowError();
+    it('should create an invalid task', () => {
+        expect(() => new Task()).toThrowError();
     });
 
 });

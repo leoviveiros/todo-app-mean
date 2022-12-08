@@ -13,7 +13,7 @@ class Task extends BaseEntity {
     constructor(id, userId, name, description, checked, createdAt, updatedAt) {
         super();
         
-        this.#id = id;
+        this.#id = id || this.generateID();
         this.#userId = userId;
         this.#name = name;
         this.#description = description;

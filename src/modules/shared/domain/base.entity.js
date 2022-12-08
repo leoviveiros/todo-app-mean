@@ -1,3 +1,4 @@
+const crypto = require('crypto');
 
 class BaseEntity {
 
@@ -9,6 +10,10 @@ class BaseEntity {
                 result[key] = this[key];
                 return result;
             }, {})
+    }
+
+    generateID() {
+        return crypto.randomUUID();
     }
 
 }
