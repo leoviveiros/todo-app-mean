@@ -21,7 +21,7 @@ class UpdateTaskUseCase {
         task.name = name;
         task.description = description;
 
-        await this.#taskGateway.updateTask(task);
+        await this.#taskGateway.updateTask(task.id, task);
 
         return task.getProperties();
     }
