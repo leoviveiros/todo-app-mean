@@ -1,13 +1,13 @@
-const AddTaskUseCase = require('./add-task.usecase.js');
+const CreateTaskUseCase = require('./create-task.usecase.js');
 
-describe('AddTaskUsecase Tests', () => {
+describe('CreateTaskUsecase Tests', () => {
 
     const mockTaskGateway = {
         addTask: jest.fn().mockResolvedValue(),
     }
 
     it('should create a task', async () => {
-        const usecase = new AddTaskUseCase(mockTaskGateway);
+        const usecase = new CreateTaskUseCase(mockTaskGateway);
 
         const task = await usecase.execute({
             userId: '123',
@@ -25,7 +25,7 @@ describe('AddTaskUsecase Tests', () => {
     });
 
     it('should throw an error if no userId is provided', async () => {
-        const usecase = new AddTaskUseCase(mockTaskGateway);
+        const usecase = new CreateTaskUseCase(mockTaskGateway);
 
         try {
             await usecase.execute({

@@ -1,7 +1,7 @@
 const Task = require('../../domain/entity/task.entity.js');
-const AddTaskInputDtoValidator = require('./add-task-input-dto.validator.js');
+const CreateTaskInputDtoValidator = require('./create-task-input-dto.validator.js');
 
-class AddTaskUseCase {
+class CreateTaskUseCase {
     #taskGateway;
 
     constructor(taskGateway) {
@@ -9,7 +9,7 @@ class AddTaskUseCase {
     }
 
     async execute(inputDto) {
-        AddTaskInputDtoValidator.validate(inputDto);
+        CreateTaskInputDtoValidator.validate(inputDto);
 
         const {userId, name, description} = inputDto;
 
@@ -22,4 +22,4 @@ class AddTaskUseCase {
 
 }
 
-module.exports = AddTaskUseCase;
+module.exports = CreateTaskUseCase;

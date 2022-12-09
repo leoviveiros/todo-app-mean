@@ -1,9 +1,9 @@
-const AddTaskInputDtoValidator = require('./add-task-input-dto.validator.js');
+const CreateTaskInputDtoValidator = require('./create-task-input-dto.validator.js');
 
-describe('AddTaskInputDtoValidator Tests', () => {
+describe('CreateTaskInputDtoValidator Tests', () => {
     
     it('should validate a valid dto', () => {
-        expect(() => AddTaskInputDtoValidator.validate({
+        expect(() => CreateTaskInputDtoValidator.validate({
             userId: 'userId',
             name: 'task name',
             description: 'task description',
@@ -11,7 +11,7 @@ describe('AddTaskInputDtoValidator Tests', () => {
     });
 
     it('should not validate an invalid dto', () => {
-        expect(() => AddTaskInputDtoValidator.validate({
+        expect(() => CreateTaskInputDtoValidator.validate({
             name: 'task name'
         })).toThrowError('"userId" is required');
     });
