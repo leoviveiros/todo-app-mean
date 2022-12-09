@@ -15,7 +15,7 @@ class CreateTaskUseCase {
 
         const task = new Task(undefined, userId, name, description);
 
-        await this.#taskGateway.addTask(task);
+        await this.#taskGateway.createTask(task);
 
         return task.getProperties();
     }

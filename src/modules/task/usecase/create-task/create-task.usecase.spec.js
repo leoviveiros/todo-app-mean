@@ -3,7 +3,7 @@ const CreateTaskUseCase = require('./create-task.usecase.js');
 describe('CreateTaskUsecase Tests', () => {
 
     const mockTaskGateway = {
-        addTask: jest.fn().mockResolvedValue(),
+        createTask: jest.fn().mockResolvedValue(),
     }
 
     it('should create a task', async () => {

@@ -40,9 +40,19 @@ class Task extends BaseEntity {
         return this.#name;
     }
 
+    set name(value) {
+        this.#name = value;
+
+        this.#validate();
+    }
+
     get description() {
         return this.#description
     }
+
+    set description(value) {
+        this.#description = value;
+    }   
 
     get checked() {
         return this.#checked;
