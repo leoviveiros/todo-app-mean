@@ -46,7 +46,23 @@ describe('Task Entity Tests', () => {
     it('should not check a checked task', () => {
         const task = new Task('1', 'userID', 'Name', 'Task description', true);
 
-        expect(() => task.check()).toThrow('checked');        
+        expect(() => task.check()).toThrow('already checked');        
+    });
+
+    it('should uncheck a task', () => {
+        const date = new Date(2022, 0, 1);
+        const task = new Task('1', 'userID', 'Name', 'Task description', true, date, date);
+
+        task.uncheck();
+
+        expect(task.checked).toBe(false);
+        expect(task.updatedAt.getTime()).toBeGreaterThan(date.getTime());
+    });
+
+    it('should not uncheck a unchecked task', () => {
+        const task = new Task('1', 'userID', 'Name', 'Task description', false);
+
+        expect(() => task.uncheck()).toThrow('already unchecked');
     });
 
 });

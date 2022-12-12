@@ -1,15 +1,15 @@
 const Task = require('../../domain/entity/task.entity.js');
-const CheckTaskUseCase = require('./check-task.usecase.js');
+const UncheckTaskUseCase = require('./uncheck-task.usecase.js');
 
-describe('CheckTaskUsecase Tests', () => {
+describe('UncheckTaskUsecase Tests', () => {
 
     const mockTaskGateway = {
         updateTask: jest.fn().mockResolvedValue(),
-        findTaskById: jest.fn().mockResolvedValue(new Task( '123', '456', 'task name', 'task description', false ))
+        findTaskById: jest.fn().mockResolvedValue(new Task( '123', '456', 'task name', 'task description', true ))
     }
 
-    it('should check a task', async () => {
-        const usecase = new CheckTaskUseCase(mockTaskGateway);
+    it('should uncheck a task', async () => {
+        const usecase = new UncheckTaskUseCase(mockTaskGateway);
 
         const task = await usecase.execute({
             id: '123',
@@ -21,13 +21,13 @@ describe('CheckTaskUsecase Tests', () => {
         expect(task.userId).toBe('456');
         expect(task.name).toBe('task name');
         expect(task.description).toBe('task description');
-        expect(task.checked).toBe(true);
+        expect(task.checked).toBe(false);
         expect(task.createdAt).toBeDefined();
         expect(task.updatedAt.getTime()).toBeGreaterThan(task.createdAt.getTime());
     });
 
     it('should throw an error if wrong userId is provided', async () => {
-        const usecase = new CheckTaskUseCase(mockTaskGateway);
+        const usecase = new UncheckTaskUseCase(mockTaskGateway);
 
         try {
             await usecase.execute({

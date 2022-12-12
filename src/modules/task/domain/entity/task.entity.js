@@ -37,6 +37,15 @@ class Task extends BaseEntity {
         this.#updatedAt = new Date();
     }
 
+    uncheck() {
+        if (this.#checked === false) {
+            throw 'Task already unchecked';
+        }
+
+        this.#checked = false;
+        this.#updatedAt = new Date();
+    }
+
     get id() {
         return this.#id;
     }
