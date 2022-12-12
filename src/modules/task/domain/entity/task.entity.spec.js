@@ -33,5 +33,21 @@ describe('Task Entity Tests', () => {
         expect(() => new Task()).toThrowError();
     });
 
+    it('should check a task', () => {
+        const date = new Date(2022, 0, 1);
+        const task = new Task('1', 'userID', 'Name', 'Task description', false, date, date);
+
+        task.check();
+
+        expect(task.checked).toBe(true);
+        expect(task.updatedAt.getTime()).toBeGreaterThan(date.getTime());
+    });
+
+    it('should not check a checked task', () => {
+        const task = new Task('1', 'userID', 'Name', 'Task description', true);
+
+        expect(() => task.check()).toThrow('checked');        
+    });
+
 });
 

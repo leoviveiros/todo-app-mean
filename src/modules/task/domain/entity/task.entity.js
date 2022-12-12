@@ -28,6 +28,15 @@ class Task extends BaseEntity {
         TaskValidator.validate(this.getProperties());
     }
 
+    check() {
+        if (this.#checked === true) {
+            throw 'Task already checked';
+        }
+        
+        this.#checked = true;
+        this.#updatedAt = new Date();
+    }
+
     get id() {
         return this.#id;
     }
