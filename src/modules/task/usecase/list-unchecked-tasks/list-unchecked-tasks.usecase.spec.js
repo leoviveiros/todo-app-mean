@@ -1,9 +1,9 @@
-const ListTasksUseCase = require('./list-tasks.usecase.js');
+const ListUncheckedTasksUseCase = require('./list-unchecked-tasks.usecase.js');
 
-describe('ListTasksUsecase Tests', () => {
+describe('ListUncheckedTasksUsecase Tests', () => {
 
     const mockTaskGateway = {
-        listTasks: jest.fn().mockResolvedValue([{
+        listUncheckedTasks: jest.fn().mockResolvedValue([{
             id: '123',
             userId: '456',
             name: 'task name',
@@ -14,8 +14,8 @@ describe('ListTasksUsecase Tests', () => {
         }]),
     }
 
-    it('should list tasks from an user', async () => {
-        const usecase = new ListTasksUseCase(mockTaskGateway);
+    it('should list unchecked tasks from an user', async () => {
+        const usecase = new ListUncheckedTasksUseCase(mockTaskGateway);
 
         const tasks = await usecase.execute({
             userId: '456'
@@ -34,7 +34,7 @@ describe('ListTasksUsecase Tests', () => {
     });
 
     it('should throw an error if no userId is provided', async () => {
-        const usecase = new ListTasksUseCase(mockTaskGateway);
+        const usecase = new ListUncheckedTasksUseCase(mockTaskGateway);
 
         try {
             await usecase.execute({});

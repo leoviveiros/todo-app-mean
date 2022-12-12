@@ -1,6 +1,6 @@
-const ListTasksInputDtoValidator = require('./list-tasks-input-dto.validator.js');
+const ListUncheckedTasksInputDtoValidator = require('./list-unchecked-tasks-input-dto.validator.js');
 
-class ListTasksUseCase {
+class ListUncheckedTasksUseCase {
     #taskGateway;
 
     /**
@@ -16,13 +16,13 @@ class ListTasksUseCase {
      * @returns {Promise<Task[]>} a promise that resolves to an array of Task objects.
      */
     execute(inputDto) {
-        ListTasksInputDtoValidator.validate(inputDto);
+        ListUncheckedTasksInputDtoValidator.validate(inputDto);
 
         const { userId } = inputDto;
         
-        return this.#taskGateway.listTasks(userId);
+        return this.#taskGateway.listUncheckedTasks(userId);
     }
 
 }
 
-module.exports = ListTasksUseCase;
+module.exports = ListUncheckedTasksUseCase;

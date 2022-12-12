@@ -43,7 +43,7 @@ class TaskGateway {
      * @param {string} userId
      * @returns {Promise<Task[]>} a promise that resolves to an array of Tasks.
      */
-    listTasks(userId) {
+    listUncheckedTasks(userId) {
         throw new NotImplementedException();
     }
     

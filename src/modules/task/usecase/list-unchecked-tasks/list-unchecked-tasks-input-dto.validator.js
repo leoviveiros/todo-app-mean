@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-class ListTasksInputDtoValidator {
+class ListUncheckedTasksInputDtoValidator {
 
     static schema = Joi.object({
         userId: Joi.string().required(),        
@@ -16,4 +16,4 @@ class ListTasksInputDtoValidator {
 
 }
 
-module.exports = ListTasksInputDtoValidator;
+module.exports = ListUncheckedTasksInputDtoValidator;
