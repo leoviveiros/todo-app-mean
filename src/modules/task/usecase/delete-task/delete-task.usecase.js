@@ -8,9 +8,9 @@ class DeleteTaskUseCase {
     }
 
     /**
-     * This function deletes a task from the database.
      * @param {Object} inputDto - The input data transfer object.
      * @param {string} inputDto.id - The task id.
+     * @returns {Promise<void>}
      */
     async execute(inputDto) {
         DeleteTaskInputDtoValidator.validate(inputDto);

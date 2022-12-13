@@ -8,6 +8,13 @@ class CreateTaskUseCase {
         this.#taskGateway = taskGateway;
     }
 
+    /**
+     * @param {Object} inputDto 
+     * @param {string} inputDto.userId
+     * @param {string} inputDto.name
+     * @param {string} inputDto.description
+     * @returns {Promise<Task>}
+     */
     async execute(inputDto) {
         CreateTaskInputDtoValidator.validate(inputDto);
 

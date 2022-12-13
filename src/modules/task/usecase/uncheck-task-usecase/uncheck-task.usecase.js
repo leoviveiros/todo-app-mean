@@ -7,6 +7,11 @@ class UncheckTaskUseCase {
         this.#taskGateway = taskGateway;
     }
 
+    /**
+     * @param {Object} inputDto 
+     * @param {string} inputDto.id
+     * @returns {Promise<Task>}
+     */
     async execute(inputDto) {
         UncheckTaskInputDtoValidator.validate(inputDto);
 

@@ -7,6 +7,13 @@ class UpdateTaskUseCase {
         this.#taskGateway = taskGateway;
     }
 
+    /**
+     * @param {Object} inputDto 
+     * @param {string} inputDto.id
+     * @param {string} inputDto.name
+     * @param {string} inputDto.description
+     * @returns {Promise<Task>}
+     */
     async execute(inputDto) {
         UpdateTaskInputDtoValidator.validate(inputDto);
 
