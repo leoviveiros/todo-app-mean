@@ -6,7 +6,9 @@
   "type": "commonjs",
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "up": "docker-compose up -d",
+    "down": "docker-compose down"
   },
   "keywords": [],
   "author": "Leonardo Pinto",
