@@ -11,9 +11,7 @@ class CreateTaskUseCase {
     async execute(inputDto) {
         CreateTaskInputDtoValidator.validate(inputDto);
 
-        const {userId, name, description} = inputDto;
-
-        const task = new Task(undefined, userId, name, description);
+        const task = new Task(inputDto);
 
         await this.#taskGateway.createTask(task);
 

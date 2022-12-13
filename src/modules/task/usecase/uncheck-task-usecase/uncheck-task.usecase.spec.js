@@ -5,7 +5,13 @@ describe('UncheckTaskUsecase Tests', () => {
 
     const mockTaskGateway = {
         updateTask: jest.fn().mockResolvedValue(),
-        findTaskById: jest.fn().mockResolvedValue(new Task( '123', '456', 'task name', 'task description', true ))
+        findTaskById: jest.fn().mockResolvedValue(new Task({
+            id: '123',
+            userId: '456',
+            name: 'task name',
+            description: 'task description',
+            checked: true
+        }))
     }
 
     it('should uncheck a task', async () => {

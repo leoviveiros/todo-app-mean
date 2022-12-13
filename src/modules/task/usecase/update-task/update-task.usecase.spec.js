@@ -5,7 +5,13 @@ describe('UpdateTaskUsecase Tests', () => {
 
     const mockTaskGateway = {
         updateTask: jest.fn().mockResolvedValue(),
-        findTaskById: jest.fn().mockResolvedValue(new Task( '123', '456', 'task name', 'task description', false ))
+        findTaskById: jest.fn().mockResolvedValue(new Task({
+            id: '123',
+            userId: '456',
+            name: 'task name',
+            description: 'task description',
+            checked: false
+        }))
     }
 
     it('should update a task', async () => {
