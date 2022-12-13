@@ -4,7 +4,6 @@ class UpdateTaskInputDtoValidator {
 
     static schema = Joi.object({
         id: Joi.string().required(),
-        userId: Joi.string().required(),
         name: Joi.string().required(),
         description: Joi.string()
     });

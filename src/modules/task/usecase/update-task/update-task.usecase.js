@@ -10,11 +10,11 @@ class UpdateTaskUseCase {
     async execute(inputDto) {
         UpdateTaskInputDtoValidator.validate(inputDto);
 
-        const { id, userId, name, description } = inputDto;
+        const { id, name, description } = inputDto;
         
         const task = await this.#taskGateway.findTaskById(id);
 
-        if (!task || task.userId !== userId) {
+        if (!task) {
             throw 'Task not found';
         }
 

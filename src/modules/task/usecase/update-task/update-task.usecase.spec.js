@@ -13,7 +13,6 @@ describe('UpdateTaskUsecase Tests', () => {
 
         const task = await usecase.execute({
             id: '123',
-            userId: '456',
             name: 'edited task name',
             description: 'edited task description'
         });
@@ -28,12 +27,14 @@ describe('UpdateTaskUsecase Tests', () => {
         expect(task.updatedAt).toBeDefined();
     });
 
-    it('should throw an error if no id is provided', async () => {
+    it('should throw an error when task is not found', async () => {
+        mockTaskGateway.findTaskById = jest.fn().mockResolvedValue(null);
+
         const usecase = new UpdateTaskUseCase(mockTaskGateway);
 
         try {
             await usecase.execute({
-                userId: '456',
+                id: 'xyz',
                 name: 'task name',
                 description: 'task description'
             });
@@ -41,23 +42,6 @@ describe('UpdateTaskUsecase Tests', () => {
             fail('should throw an error');
         } catch (error) {
             expect(error).toBeDefined();
-        }
-    });
-
-    it('should throw an error if wrong userId is provided', async () => {
-        const usecase = new UpdateTaskUseCase(mockTaskGateway);
-
-        try {
-            await usecase.execute({
-                id: '123',
-                userId: '789',
-                name: 'task name',
-                description: 'task description'
-            });
-
-            fail('should throw an error');
-        } catch (error) {
-            expect(error).toMatch('Task not found');
         }
     });
 

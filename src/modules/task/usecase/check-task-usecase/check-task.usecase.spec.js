@@ -13,7 +13,6 @@ describe('CheckTaskUsecase Tests', () => {
 
         const task = await usecase.execute({
             id: '123',
-            userId: '456'
         });
 
         expect(task).toBeDefined();
@@ -26,13 +25,14 @@ describe('CheckTaskUsecase Tests', () => {
         expect(task.updatedAt.getTime()).toBeGreaterThan(task.createdAt.getTime());
     });
 
-    it('should throw an error if wrong userId is provided', async () => {
+    it('should throw an error when task is not found', async () => {
+        mockTaskGateway.findTaskById = jest.fn().mockResolvedValue(null);
+
         const usecase = new CheckTaskUseCase(mockTaskGateway);
 
         try {
             await usecase.execute({
-                id: '123',
-                userId: '789'
+                id: '123'
             });
 
             fail('should throw an error');

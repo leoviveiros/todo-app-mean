@@ -11,10 +11,7 @@ describe('UncheckTaskUsecase Tests', () => {
     it('should uncheck a task', async () => {
         const usecase = new UncheckTaskUseCase(mockTaskGateway);
 
-        const task = await usecase.execute({
-            id: '123',
-            userId: '456'
-        });
+        const task = await usecase.execute({ id: '123' });
 
         expect(task).toBeDefined();
         expect(task.id).toBe('123');
@@ -26,14 +23,13 @@ describe('UncheckTaskUsecase Tests', () => {
         expect(task.updatedAt.getTime()).toBeGreaterThan(task.createdAt.getTime());
     });
 
-    it('should throw an error if wrong userId is provided', async () => {
+    it('should throw an error when task is not found', async () => {
+        mockTaskGateway.findTaskById = jest.fn().mockResolvedValue(null);
+
         const usecase = new UncheckTaskUseCase(mockTaskGateway);
 
         try {
-            await usecase.execute({
-                id: '123',
-                userId: '789'
-            });
+            await usecase.execute({ id: '123' });
 
             fail('should throw an error');
         } catch (error) {
