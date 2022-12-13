@@ -10,16 +10,26 @@ class Task extends BaseEntity {
     #createdAt;
     #updatedAt;
 
-    constructor(id, userId, name, description, checked, createdAt, updatedAt) {
+    /**
+     * @param {Object} props 
+     * @param {string} [props.id]
+     * @param {string} props.userId
+     * @param {string} props.name
+     * @param {string} [props.description]
+     * @param {boolean} [props.checked]
+     * @param {Date} [props.createdAt]
+     * @param {Date} [props.updatedAt]
+     */
+    constructor(props) {
         super();
         
-        this.#id = id || this.generateID();
-        this.#userId = userId;
-        this.#name = name;
-        this.#description = description;
-        this.#checked = checked || false;
-        this.#createdAt = createdAt || new Date();
-        this.#updatedAt = updatedAt || new Date();
+        this.#id = props.id || this.generateID();
+        this.#userId = props.userId;
+        this.#name = props.name;
+        this.#description = props.description;
+        this.#checked = props.checked || false;
+        this.#createdAt = props.createdAt || new Date();
+        this.#updatedAt = props.updatedAt || new Date();
 
         this.#validate();
     }
