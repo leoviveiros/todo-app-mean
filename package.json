@@ -7,8 +7,8 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
-    "up": "docker-compose up -d",
-    "down": "docker-compose down"
+    "up": "docker stack deploy -c todo-app-stack.yaml todo-app",
+    "down": "docker stack rm todo-app"
   },
   "keywords": [],
   "author": "Leonardo Pinto",
