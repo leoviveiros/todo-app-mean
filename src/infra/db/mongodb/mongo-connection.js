@@ -5,14 +5,14 @@ const mongoose = require('mongoose');
  */
 function connect() {
     return mongoose.connect('mongodb://localhost:27017/todo')
-        .catch(console.error);
+        .then(result => result.connection, error => console.error(error));
 }
 
 /**
  * @returns {Promise<void>}
  */
 function disconnect() {
-    return mongoose.disconnected();
+    return mongoose.disconnect();
 }
 
 /**
