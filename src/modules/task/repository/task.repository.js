@@ -8,7 +8,7 @@ class TaskRepository extends TaskGateway {
     constructor() {
         super();
     }
-
+    
     #taskFromModel(data) {
         return new Task({
             id: data._id,
