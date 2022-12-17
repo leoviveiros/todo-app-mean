@@ -11,8 +11,10 @@ services:
       MONGO_INITDB_ROOT_PASSWORD_FILE: /run/secrets/mongo_admin
     volumes:
       - ./.docker/data/mongodb:/data/db
+      - ./.docker/db-init:/docker-entrypoint-initdb.d
     secrets:
       - mongo_admin
+      - database_user
 
   mongo-express:
     image: mongo-express
@@ -28,4 +30,6 @@ services:
 secrets:
   mongo_admin:
     file: ./.docker/secrets/mongo-admin.txt
+  database_user:
+    file: ./.docker/secrets/database-user.txt
    
