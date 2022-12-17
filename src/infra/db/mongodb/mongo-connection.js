@@ -1,10 +1,12 @@
+require('dotenv').config();
+
 const mongoose = require('mongoose');
 
 /**
  * @returns {Promise<Connection>}.
  */
 function connect() {
-    return mongoose.connect('mongodb://localhost:27017/todo')
+    return mongoose.connect(process.env.MONGODB_URL)
         .then(result => result.connection, error => console.error(error));
 }
 
