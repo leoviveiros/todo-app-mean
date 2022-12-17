@@ -19,6 +19,10 @@ describe('Task Repository Test Suite', () => {
         taskRepository = new TaskRepository();
     });
 
+    afterEach(async () => {
+        await TaskModel.deleteMany({});
+    });
+
     it('should create a new task', async () => {
         const task = new Task({
             userId: '456',
@@ -30,7 +34,7 @@ describe('Task Repository Test Suite', () => {
 
         const savedTask = await TaskModel.findById(task.id).exec();
 
-        expect(savedTask).toBeDefined();
+        expect(savedTask).not.toBeNull();
         expect(savedTask.id).toEqual(task.id);
         expect(savedTask.userId).toEqual(task.userId);
         expect(savedTask.name).toEqual(task.name);

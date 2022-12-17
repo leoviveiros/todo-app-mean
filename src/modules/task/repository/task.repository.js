@@ -21,13 +21,20 @@ class TaskRepository extends TaskGateway {
         });
     }
 
+    #taskToModel(task) {
+        assert(task instanceof Task);
+        return {
+            _id: task.id,
+            ...task.getProperties()
+        }
+    }
+
     /**
      * @param {Task} task - The task to create.
      * @returns {Promise<Task>} - The created task
      */
     createTask(task) {
-        assert(task instanceof Task);
-        return TaskModel.create(task.getProperties());
+        return TaskModel.create(this.#taskToModel(task));
     }
 
     /**
