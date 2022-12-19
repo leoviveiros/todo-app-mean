@@ -6,7 +6,9 @@
   "type": "commonjs",
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "up": "docker stack deploy -c todo-app-stack.yaml todo-app",
+    "down": "docker stack rm todo-app"
   },
   "keywords": [],
   "author": "Leonardo Pinto",
@@ -15,8 +17,10 @@
     "node": "18"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "joi": "^17.7.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "mongoose": "^6.8.0"
   },
   "devDependencies": {
     "jest": "^29.3.1"

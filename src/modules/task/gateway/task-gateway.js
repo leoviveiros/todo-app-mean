@@ -56,3 +56,5 @@ class TaskGateway {
     }
     
 }
+
+module.exports = TaskGateway;

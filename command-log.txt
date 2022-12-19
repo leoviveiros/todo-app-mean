@@ -1,0 +1,6 @@
+# docker
+docker swarm init
+docker service ls
+
+docker stack deploy -c todo-app-stack.yaml todo-app
+docker stack rm todo-app
