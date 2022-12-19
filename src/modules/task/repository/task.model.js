@@ -10,6 +10,10 @@ const TaskSchema = new mongoose.Schema({
     updatedAt: { type: Date, required: true }
 });
 
+TaskSchema.index({ userId: 1, checked: 1, createdAt: -1 });
+
+TaskSchema.on('index', error => console.error(error));
+
 const TaskModel = mongoose.model('tasks', TaskSchema);
 
 module.exports = TaskModel;

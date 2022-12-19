@@ -6,7 +6,9 @@ const mongoose = require('mongoose');
  * @returns {Promise<Connection>}.
  */
 function connect() {
-    return mongoose.connect(process.env.MONGODB_URL)
+    const autoIndex = Boolean(process.env.MONGODB_AUTOINDEX || false);
+
+    return mongoose.connect(process.env.MONGODB_URL, { autoIndex })
         .then(result => result.connection, error => console.error(error));
 }
 
