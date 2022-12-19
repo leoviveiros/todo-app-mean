@@ -9,7 +9,7 @@
     "test:watch": "jest --watch",
     "up": "docker stack deploy -c todo-app-stack.yaml todo-app",
     "down": "docker stack rm todo-app",
-    "dev": "set DEBUG=todo:* & node src/api.js"
+    "dev": "set DEBUG=todo:* & nodemon src/api.js"
   },
   "keywords": [],
   "author": "Leonardo Pinto",
