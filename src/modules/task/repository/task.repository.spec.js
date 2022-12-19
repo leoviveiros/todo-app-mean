@@ -44,4 +44,22 @@ describe('Task Repository Test Suite', () => {
         expect(savedTask.updatedAt.getTime()).toEqual(task.updatedAt.getTime());
     });
 
+    it('should delete a task', async () => {
+        const task = await TaskModel.create({
+            _id: '123',
+            userId: '456',
+            name: 'test task',
+            checked: false,
+            createdAt: new Date(),
+            updatedAt: new Date()
+        });
+
+        expect(task).toBeDefined();
+
+        const deleteResult = await taskRepository.deleteTask(task._id);
+
+        expect(deleteResult).toBeDefined();
+        expect(deleteResult.deletedCount).toEqual(1);
+    });
+
 });
