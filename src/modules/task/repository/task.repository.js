@@ -62,7 +62,7 @@ class TaskRepository extends TaskGateway {
     async findTaskById(taskId) {
         const data = await TaskModel.findOne({ _id: taskId });
 
-        return data ?? this.#taskFromModel(data);
+        return data ? this.#taskFromModel(data) : data;
     }
 
     async #listUserTasks(userId, checked) {
