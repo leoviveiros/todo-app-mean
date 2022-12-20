@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const debug = require('debug')('todo:task-api');
-const taskUsecases = require('../modules/task/factory/task-usecases.factory.js');
+const taskUsecases = require('../../../modules/task/factory/task-usecases.factory.js');
 
 router.get('/', (req, res) => {
     debug('GET %s', req.originalUrl);

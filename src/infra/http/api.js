@@ -1,6 +1,6 @@
 const express = require('express');
 const debug = require('debug')('todo:api');
-const taskApiRoutes = require('../../routes/task-api.routes.js');
+const taskApiRoutes = require('./routes/task-api.routes.js');
 
 class ApiServer {
     static httpServer;
