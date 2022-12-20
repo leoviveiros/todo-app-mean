@@ -1,1 +1,14 @@
 http://localhost:3000/api/tasks/
+
+###
+
+POST http://localhost:3000/api/tasks/
+content-type: application/json
+
+{
+    "userId": "123456",
+    "name": "task name",
+    "description": "task description"
+}
+
+###
