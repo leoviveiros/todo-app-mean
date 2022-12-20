@@ -1,4 +1,5 @@
 require('dotenv').config();
+const debug = require('debug')('todo:mongodb');
 
 const mongoose = require('mongoose');
 
@@ -11,7 +12,10 @@ function connect() {
     const autoIndex = Boolean(process.env.MONGODB_AUTOINDEX || false);
 
     return mongoose.connect(process.env.MONGODB_URL, { autoIndex })
-        .then(result => result.connection, error => console.error(error));
+        .then(result => {
+            debug('App connected to MongoDB');
+            return result.connection;
+        }, error => debug(error));
 }
 
 /**

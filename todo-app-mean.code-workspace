@@ -5,6 +5,9 @@
 		}
     ],
     "settings": {
-        "docwriter.style": "Auto-detect"
+        "docwriter.style": "Auto-detect",
+        "jest.autoRun": {
+            "watch": "true"
+        }
     }
 }
