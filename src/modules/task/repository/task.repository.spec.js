@@ -1,5 +1,5 @@
 require('dotenv').config();
-const mongo = require('../../../infra/db/mongodb/mongo-connection.js');
+const MongoDB = require('../../../infra/mongodb/mongodb.js');
 const TaskRepository = require('./task.repository.js');
 const TaskModel = require('./task.model.js');
 const Task = require('../domain/entity/task.entity.js');
@@ -9,11 +9,11 @@ describe('Task Repository Test Suite', () => {
     let taskRepository;
 
     beforeAll(async () => {
-        await mongo.connect();
+        await MongoDB.connect();
     });
 
     afterAll(async () => {
-        await mongo.disconnect();
+        await MongoDB.disconnect();
     });
 
     beforeEach(() => {

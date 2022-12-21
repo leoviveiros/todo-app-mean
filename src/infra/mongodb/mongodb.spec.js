@@ -1,10 +1,10 @@
 require('dotenv').config();
-const mongo = require('./mongo-connection.js');
+const MongoDB = require('./mongodb.js');
 
 describe('Mongo Connection Test Suit', () => {
     
     it('should connect to Mongo', async () => {
-        const connection = await mongo.connect();
+        const connection = await MongoDB.connect();
 
         await new Promise(resolve => setTimeout(resolve, 500));
 
@@ -15,13 +15,13 @@ describe('Mongo Connection Test Suit', () => {
     });
 
     it('should disconnect from Mongo', async () => {
-        const connection = await mongo.connect();
+        const connection = await MongoDB.connect();
 
         await new Promise(resolve => setTimeout(resolve, 500));
 
         expect(connection).toBeDefined();
 
-        await mongo.disconnect();
+        await MongoDB.disconnect();
         
         expect(connection.readyState).toBe(0);
     });
