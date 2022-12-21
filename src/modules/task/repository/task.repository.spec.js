@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mongo = require('../../../infra/db/mongodb/mongo-connection.js');
 const TaskRepository = require('./task.repository.js');
 const TaskModel = require('./task.model.js');

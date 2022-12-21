@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mongo = require('./mongo-connection.js');
 
 describe('Mongo Connection Test Suit', () => {
@@ -23,15 +24,6 @@ describe('Mongo Connection Test Suit', () => {
         await mongo.disconnect();
         
         expect(connection.readyState).toBe(0);
-    });
-
-    it('should check weather it is connected', async () => {
-        const connection = await mongo.connect();
-        const result = await mongo.isConnected();
-
-        expect(result).toBe(true);
-
-        await connection.close();
     });
     
 });

@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const debug = require('debug')('todo:app');
 const mongo = require('./infra/db/mongodb/mongo-connection.js');
 const ApiServer = require('./infra/http/api.js');
