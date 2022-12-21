@@ -7,7 +7,7 @@ class ApiServer {
 
     static start() {
         const app = express();
-        const port = 3000;
+        const port = Number(process.env.HTTP_SERVER_PORT || 3000);
 
         app.use(express.json())
         app.use('/api/tasks', taskApiRoutes);
