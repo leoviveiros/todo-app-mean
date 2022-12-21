@@ -5,6 +5,9 @@ const taskApiRoutes = require('./routes/task-api.routes.js');
 class ApiServer {
     static httpServer;
 
+    /**
+     * @returns {http.Server}
+     */
     static start() {
         const app = express();
         const port = Number(process.env.HTTP_SERVER_PORT || 3000);
@@ -19,11 +22,13 @@ class ApiServer {
         this.httpServer = app.listen(port, () => {
             debug(`App listening on port ${port}`);
         });
+
+        return this.httpServer;
     }
 
     static stop() {
         return new Promise(resolve => {
-            server.close(() => {
+            this.httpServer.close(() => {
                 debug('HTTP server closed');
                 resolve();
             });

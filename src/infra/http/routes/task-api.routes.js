@@ -22,7 +22,7 @@ router.post('/', async (req, res, next) => {
             description: body.description,
         });
     
-        res.json(task.getProperties());
+        res.json(task);
     } catch (error) {
         next(error);
     }
