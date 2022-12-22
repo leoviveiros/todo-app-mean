@@ -8,7 +8,7 @@ class TaskRepository extends TaskGateway {
     constructor() {
         super();
     }
-    
+
     #taskFromModel(data) {
         return new Task({
             id: data._id,
@@ -86,6 +86,14 @@ class TaskRepository extends TaskGateway {
      */
     listCheckedTasks(userId) {
         return this.#listUserTasks(userId, true);
+    }
+
+    /**
+     * Deletes all tasks. For testing purposes.
+     * @returns {Promise<any>}
+     */
+    deleteAllTasks() {
+        return TaskModel.deleteMany({});
     }
 
 }

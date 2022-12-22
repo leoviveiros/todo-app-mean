@@ -7,6 +7,13 @@
             "problemMatcher": [],
             "label": "npm: dev",
             "detail": "set DEBUG=todo:* & nodemon src/index.js"
+        },
+        {
+            "type": "npm",
+            "script": "up",
+            "problemMatcher": [],
+            "label": "npm: up",
+            "detail": "docker stack deploy -c todo-app-stack.yaml todo-app"
         }
     ]
 }

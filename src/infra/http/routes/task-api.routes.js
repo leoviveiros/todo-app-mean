@@ -1,3 +1,4 @@
+const { Router } = require('express');
 const express = require('express');
 const router = express.Router();
 const debug = require('debug')('todo:task-api');
@@ -23,6 +24,22 @@ router.post('/', async (req, res, next) => {
         });
     
         res.json(task);
+    } catch (error) {
+        next(error);
+    }
+});
+
+/**
+ * Deletes a task
+ */
+router.delete('/:id', async (req, res, next) => {
+    try {
+        const deleteTaskUsecase = taskUsecases.deleteTaskFactory();
+        const { id } = req.params;
+
+        await deleteTaskUsecase.execute({ id });
+        
+        res.sendStatus(200);
     } catch (error) {
         next(error);
     }
